@@ -1,7 +1,11 @@
 aid: carmax
-url: https://raw.githubusercontent.com/api-evangelist/carmax/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/carmax/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.carmax.com
+description: >-
+  CarMax is the largest retailer of used cars in the United States, offering vehicle
+  sales, financing, appraisals, and trade-ins through stores and online.
