@@ -17,7 +17,7 @@ description: >-
   web and mobile. Partner and syndication integrations are handled
   case by case rather than through a self-service portal.
 type: Index
-x-type: company
+kind: company
 position: Consumer
 access: Partner
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -140,9 +140,9 @@ common:
     url: https://investors.carmax.com/
   - type: Contact
     url: https://www.carmax.com/customer-service
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.carmax.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.carmax.com/privacy
   - type: LinkedIn
     url: https://www.linkedin.com/company/carmax
