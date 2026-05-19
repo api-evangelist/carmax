@@ -122,6 +122,8 @@ apis:
       - Rapid filter experimentation
       - Per-market and per-user personalization
 common:
+  - type: GitHubOrganization
+    url: https://github.com/CarMax
   - type: Website
     url: https://www.carmax.com/
   - type: Stores
