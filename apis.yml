@@ -123,6 +123,8 @@ apis:
       - Rapid filter experimentation
       - Per-market and per-user personalization
 common:
+  - type: DomainSecurity
+    url: security/carmax-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/CarMax
   - type: Website
@@ -137,6 +139,8 @@ common:
     url: https://www.carmax.com/sell-my-car
   - type: Engineering Blog
     url: https://medium.com/carmax-engineering-blog
+  - url: https://medium.com/feed/carmax-engineering-blog
+    type: Blog
   - type: Careers
     url: https://jobs.carmax.com/
   - type: Investor Relations
