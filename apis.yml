@@ -18,9 +18,21 @@ description: >-
   case by case rather than through a self-service portal.
 type: Index
 kind: company
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: Partner
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/carmax.png
 tags:
   - Auto Financing
   - Auto Retail
