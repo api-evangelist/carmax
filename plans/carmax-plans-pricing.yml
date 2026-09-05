@@ -4,11 +4,12 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CarMax
 providerId: carmax
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-05'
+generated: '2026-09-05'
+method: searched
+source: https://www.carmax.com/ + web search for a CarMax developer portal, API pricing
+  or partner API programme (2026-09-05)
+reconciled: true
 tags:
   - Auto Financing
   - Auto Retail
@@ -20,37 +21,28 @@ tags:
   - Used Cars
   - Vehicle Inventory
   - VIN Lookup
-description: CarMax does not publish a public developer portal or API pricing. The CarMax engineering
-  team has documented internal API patterns (Data Access Layer, Business Logic Layer, Server-Driven UI,
-  Backend for Frontend) on its engineering blog, but Store Locations API, Vehicle Inventory API, and
-  related endpoints are consumed by CarMax's own web/mobile clients and partner-syndication agreements.
-notes: No public API pricing exists. Partner / syndication integrations are negotiated case by case;
-  no self-service developer pricing.
+plan_count: 0
+plans: []
+description: >-
+  CarMax publishes no API plans and no API pricing, because it publishes no public API.
+  There is no developer portal, no sign-up, no self-service tier and no "contact sales"
+  API page. Third-party access to CarMax inventory happens through bilateral syndication
+  and marketplace agreements negotiated by CarMax's partnerships organisation, and those
+  agreements are not published in any form we could read.
+notes: >-
+  Rewritten 2026-09-05. The previous version of this file was written by the 2026-05-04
+  bulk sweep with method "generated" and carried an invented plan entry
+  ("Internal / Partner Use", price "contact partnerships"). CarMax never published such a
+  plan; it was scaffolding. plan_count is now 0, which is the honest measurement.
 sources:
-  - https://www.carmax.com/
-  - https://www.carmax.com/engineering-blog
-plans:
-  - id: carmax-internal
-    name: Internal / Partner Use
-    type: enterprise
-    description: APIs are used internally by CarMax web and mobile clients and exposed to selected partners
-      and syndication channels under bilateral agreement.
-    entries:
-      - label: Partner agreement
-        name: partner_agreement
-        type: subscription
-        metric: contract
-        limit: -1
-        timeFrame: year
-        geo: US
-        unit: 1
-        price: contact partnerships
-        userMultiplied: false
-    elements:
-      - name: CarMax Store Locations API
-      - name: CarMax Vehicle Inventory API
-      - name: CarMax Server-Driven UI API
-      - name: Internal Data Access / BFF Layers
+  - url: https://www.carmax.com/
+    status: 403
+    note: Akamai bot-manager refusal to non-browser clients; the site has no developer
+      or API-pricing section in any indexed page
+  - url: https://developer.carmax.com/
+    status: 403
+    note: resolves to the same Akamai edge as www; no developer portal is indexed or
+      archived at this host
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

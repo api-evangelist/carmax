@@ -57,7 +57,7 @@ tags:
   - VIN Lookup
   - Fortune 500
 created: '2026-03-21'
-modified: '2026-04-23'
+modified: '2026-09-05'
 specificationVersion: '0.23'
 apis:
   - aid: carmax:store-locations-api
@@ -145,9 +145,55 @@ apis:
       - Unified search UX across channels
       - Rapid filter experimentation
       - Per-market and per-user personalization
+  - aid: carmax:chatgpt-app
+    name: CarMax in ChatGPT
+    description: >-
+      On 2026-02-27 CarMax became the first U.S. auto retailer with an app in
+      the OpenAI ChatGPT App Store, putting its nationwide inventory of more
+      than 45,000 vehicles and its instant-offer tool inside the ChatGPT
+      conversation. Shoppers describe what they want in natural language, browse
+      matching listings, and get a CarMax offer on a car they want to sell.
+      OpenAI's Apps SDK is built on the Model Context Protocol, so CarMax
+      operates an MCP server behind this app — but CarMax has never published
+      the endpoint, has never named MCP in its own material, and offers no way
+      for any agent other than ChatGPT to connect. It is a real agent surface
+      that is not an open one.
+    humanURL: https://media.carmax.com/press-releases/news-release/2026/CarMax-Launches-First-of-Its-Kind-Car-Shopping-and-Selling-Experience-in-ChatGPT-App-Store/default.aspx
+    tags:
+      - Agents
+      - Auto Retail
+      - MCP
+      - Used Cars
+      - Vehicle Inventory
+    properties:
+      - url: mcp/carmax-mcp.yml
+        type: MCPServer
+      - url: https://media.carmax.com/press-releases/news-release/2026/CarMax-Launches-First-of-Its-Kind-Car-Shopping-and-Selling-Experience-in-ChatGPT-App-Store/default.aspx
+        type: PressReleases
+    x-features:
+      - Conversational search across 45,000+ nationwide vehicles
+      - Listing exploration inside the ChatGPT conversation
+      - Instant online offer for a car the customer wants to sell
+      - MCP transport via OpenAI's Apps SDK; endpoint not published
+    x-use-cases:
+      - Start a used-car search from a natural-language description
+      - Compare CarMax inventory without leaving ChatGPT
+      - Get a sell-your-car valuation conversationally
 common:
   - type: DomainSecurity
     url: security/carmax-domain-security.yml
+  - type: VulnerabilityDisclosure
+    url: security/carmax-vulnerability-disclosure.yml
+  - type: Security
+    url: https://www.carmax.com/responsible-disclosure
+  - type: SecurityTxt
+    url: well-known/carmax-security.txt
+  - type: WellKnown
+    url: well-known/carmax-well-known.yml
+  - type: Packages
+    url: packages/carmax-packages.yml
+  - type: LLMsTxt
+    url: llms/carmax-llms.txt
   - type: GitHubOrganization
     url: https://github.com/CarMax
   - type: Website
@@ -157,7 +203,7 @@ common:
   - type: Cars
     url: https://www.carmax.com/cars
   - type: Finance
-    url: https://www.carmax.com/finance
+    url: https://www.carmax.com/car-financing
   - type: Sell Your Car
     url: https://www.carmax.com/sell-my-car
   - type: Engineering Blog
@@ -165,15 +211,15 @@ common:
   - url: https://medium.com/feed/carmax-engineering-blog
     type: Blog
   - type: Careers
-    url: https://jobs.carmax.com/
+    url: https://careers.carmax.com/
   - type: Investor Relations
     url: https://investors.carmax.com/
-  - type: Contact
-    url: https://www.carmax.com/customer-service
+  - type: Support
+    url: https://www.carmax.com/help-center
   - type: TermsOfService
     url: https://www.carmax.com/terms
   - type: PrivacyPolicy
-    url: https://www.carmax.com/privacy
+    url: https://www.carmax.com/privacy-policy
   - type: LinkedIn
     url: https://www.linkedin.com/company/carmax
   - type: X
@@ -183,3 +229,9 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v3

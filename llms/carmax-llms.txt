@@ -1,0 +1,49 @@
+# CarMax
+
+> CarMax (NYSE: KMX) is the largest used-car retailer in the United States, operating 255+ stores plus carmax.com, home delivery, financing, appraisals and trade-ins. CarMax does not run a public developer program: there is no developer portal, no published OpenAPI, no API keys and no self-service pricing. Its APIs are internal, and third-party access is negotiated as a syndication or partner agreement. The one agent-facing surface CarMax ships is its ChatGPT App Store app, launched 2026-02-27.
+
+## Provenance
+
+- Generated 2026-09-05 by the API Evangelist enrichment pipeline from this repository's apis.yml and artifacts.
+- Not published by CarMax. CarMax serves no /llms.txt of its own (probed 2026-09-05; www.carmax.com answers 403 to non-browser clients on every path, and the Internet Archive holds no capture of /llms.txt).
+
+## Agent surface
+
+- [CarMax in ChatGPT](https://media.carmax.com/press-releases/news-release/2026/CarMax-Launches-First-of-Its-Kind-Car-Shopping-and-Selling-Experience-in-ChatGPT-App-Store/default.aspx): First U.S. auto retailer app in the ChatGPT App Store (2026-02-27). Search 45,000+ vehicles conversationally, open listings, and get an instant offer on a car you want to sell. Built on OpenAI's Apps SDK, which runs on MCP — so CarMax operates an MCP server, but the endpoint is not published and is reachable only from inside ChatGPT. No third-party agent can connect to it.
+- No A2A agent card. Probed /.well-known/agent-card.json and /.well-known/agent.json on all seven CarMax hosts; nothing returned an AgentCard.
+- No public MCP endpoint, no OpenAPI, no GraphQL, no AsyncAPI, no gRPC and no WSDL were found on any CarMax host.
+
+## Internal APIs described publicly
+
+CarMax's engineering blog describes the API roles behind carmax.com. These are internal contracts — they have no public base URL, no documentation and no way to obtain credentials.
+
+- [CarMax Store Locations API](https://www.carmax.com/stores): Addresses, hours, services and geographic metadata for every CarMax store. Source of truth for the store locator, mobile app and local SEO pages.
+- [CarMax Vehicle Inventory API](https://www.carmax.com/cars): Nationwide used-vehicle inventory — year/make/model/trim, mileage, price, stock number, interior and exterior attributes, photos. Powers carmax.com search and the vehicle detail page.
+- [CarMax Vehicle Search Server-Driven UI API](https://www.carmax.com/cars): Server-Driven UI payloads that decide which search filters and list layouts render on web and mobile.
+- [API Roles](https://medium.com/carmax-engineering-blog/api-roles-aec7999c095c): Maria Gullickson on the four roles CarMax APIs play — Data Access Layer, Business Logic Layer, Server-Driven UI, Backend For Frontend.
+
+## Security
+
+- [Responsible Disclosure](https://www.carmax.com/responsible-disclosure): CarMax's coordinated vulnerability-disclosure policy. No paid bug bounty.
+- [security.txt](https://www.carmax.com/.well-known/security.txt): RFC 9116 document. Contact: responsible_disclosure@carmax.com. Note its Expires field reads 2024-12-31 — the document is past its own expiry.
+
+## Human entry points
+
+- [CarMax](https://www.carmax.com/): Main site.
+- [Shop cars](https://www.carmax.com/cars): Nationwide inventory search.
+- [Stores](https://www.carmax.com/stores): Store locator.
+- [Sell your car](https://www.carmax.com/sell-my-car): Online instant offer.
+- [Car financing](https://www.carmax.com/car-financing): CarMax Auto Finance.
+- [Help center](https://www.carmax.com/help-center): FAQs and support contact.
+- [Terms of use](https://www.carmax.com/terms)
+- [Privacy policy](https://www.carmax.com/privacy-policy)
+- [CarMax Engineering Blog](https://medium.com/carmax-engineering-blog): Public engineering writing, including the API-roles article above.
+- [GitHub](https://github.com/CarMax): Seven public repositories, mostly React component forks. No API contracts. First-party packages: react-cursor-zoom (npm, 1.3.0, 2019-09-05), Convergence and Convergence.React (NuGet, 1.0.0, 2017-11-02) — none is an API client.
+- [Investor relations](https://investors.carmax.com/)
+- [Careers](https://careers.carmax.com/)
+
+## What an agent should not expect
+
+- There is no public API to call, no sandbox, no rate-limit documentation and no published plans or pricing for API access.
+- carmax.com is behind an Akamai bot-manager policy that returns 403 to non-browser clients on every path, including robots.txt. That is an edge policy, not a robots.txt disallow — carmax.com/robots.txt permits general crawling.
+- @striderlabs/mcp-carmax on npm is a third-party browser-automation scraper, not a CarMax product.

@@ -1,0 +1,88 @@
+generated: '2026-09-05'
+method: searched
+source: https://media.carmax.com/press-releases/news-release/2026/CarMax-Launches-First-of-Its-Kind-Car-Shopping-and-Selling-Experience-in-ChatGPT-App-Store/default.aspx
+provider: CarMax
+providerId: carmax
+name: CarMax in ChatGPT
+status: shipped
+summary: >-
+  On 2026-02-27 CarMax became the first U.S. auto retailer with an app in the OpenAI
+  ChatGPT App Store, putting its nationwide inventory of 45,000+ vehicles and its
+  instant-offer tool inside the ChatGPT conversation. OpenAI's Apps SDK — the mechanism
+  a ChatGPT app is built on — is itself built on the Model Context Protocol, so shipping
+  a ChatGPT app means CarMax operates an MCP server that OpenAI's client connects to.
+  CarMax has not published that endpoint, has not named MCP in any of its own material,
+  and offers no way for a third-party agent to connect to it: the surface is reachable
+  only from inside ChatGPT.
+deployment:
+  mode: remote
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+  note: >-
+    endpoint is deliberately null. CarMax publishes no MCP URL, and none of
+    mcp.carmax.com, chatgpt.carmax.com, agent.carmax.com, apps.carmax.com,
+    gateway.carmax.com or api.carmax.com resolves in DNS (all NXDOMAIN, probed
+    2026-09-05). ai.carmax.com does resolve — an Azure App Service named
+    "istaihubwebsite" — but every path there redirects to Microsoft Entra ID sign-in and
+    a POST of tools/list to /mcp returned 401 with an empty body, so it is an internal
+    employee hub, not this server. Writing a guessed URL here would assert a callable
+    agent surface that does not exist.
+distribution:
+  channel: OpenAI ChatGPT App Store
+  launched: '2026-02-27'
+  publicly_callable: false
+  discoverable_endpoint: false
+  note: Distribution is through the ChatGPT app directory. An agent that is not ChatGPT
+    cannot reach this server.
+capabilities:
+- name: search inventory
+  description: Search CarMax's nationwide used-vehicle inventory in natural language
+    ("an SUV with a third row under $25,000", "a small AWD car with good tech").
+  source: press release
+- name: explore listings
+  description: Browse and open matching vehicle listings from within the conversation.
+  source: press release
+- name: vehicle valuation / instant offer
+  description: Get CarMax's online offer for a car the customer wants to sell.
+  source: press release
+note_on_tool_schemas: >-
+  No tools/list was obtainable. The capability list above is read from CarMax's own
+  press release, not from an MCP manifest, so it carries names and descriptions only —
+  no inputSchema. Real tool schemas would need either a published endpoint or
+  authenticated introspection from inside ChatGPT.
+third_party_servers:
+- name: '@striderlabs/mcp-carmax'
+  publisher: Strider Labs
+  official: false
+  registry: npm
+  version: 1.0.1
+  published: '2026-06-18'
+  mode: local-stdio
+  install: npx -y @striderlabs/mcp-carmax
+  transport_note: >-
+    Not CarMax software. It drives carmax.com through Playwright on a Browserbase
+    headless browser and requires the consumer's own BROWSERBASE_CDP_URL — a scraper
+    wrapped as an MCP server, not a CarMax API. Tools it exposes: search_inventory,
+    get_vehicle_details, schedule_test_drive, get_instant_offer. Recorded so the catalog
+    never mistakes it for a first-party server.
+evidence:
+- url: https://www.globenewswire.com/news-release/2026/02/27/3246607/0/en/CarMax-Launches-First-of-Its-Kind-Car-Shopping-and-Selling-Experience-in-ChatGPT-App-Store.html
+  status: 200
+  note: full CarMax press release, 2026-02-27, quote from Diane Cafritz, Chief Innovation
+    & People Officer
+- url: https://media.carmax.com/press-releases/news-release/2026/CarMax-Launches-First-of-Its-Kind-Car-Shopping-and-Selling-Experience-in-ChatGPT-App-Store/default.aspx
+  status: 403
+  note: CarMax's own media centre copy; 403 is the Cloudflare JS challenge on the Q4 Inc
+    IR platform, not absence
+- url: https://ai.carmax.com/mcp
+  status: 401
+  note: POST tools/list — Entra-gated internal hub, not the ChatGPT server
+- url: https://www.npmjs.com/package/@striderlabs/mcp-carmax
+  status: 200
+  note: third-party connector, recorded as not official
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

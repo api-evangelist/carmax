@@ -1,0 +1,105 @@
+generated: '2026-09-05'
+method: searched
+source: registry.npmjs.org search + package metadata, api.github.com/orgs/CarMax/repos,
+  PyPI / RubyGems / crates.io / NuGet / Maven Central / pkg.go.dev name searches
+provider: CarMax
+providerId: carmax
+summary: >-
+  CarMax publishes no client SDK for any CarMax API, because CarMax publishes no public
+  API. The CarMax GitHub organisation holds seven public repositories, five of which are
+  forks of third-party React components; only one CarMax-authored library was ever
+  published to a package registry, and it is a browser UI component, not an API client.
+  No PyPI, RubyGems, crates.io, NuGet, Maven Central or Go module namespace for CarMax
+  exists. Because there is no first-party API SDK, no "SDKs" pointer is wired into
+  apis.yml — the "Packages" pointer records what actually exists.
+sdk_count: 0
+package_count: 4
+packages:
+- name: react-cursor-zoom
+  registry: npm
+  url: https://www.npmjs.com/package/react-cursor-zoom
+  repository: https://github.com/CarMax/react-cursor-zoom
+  official: true
+  kind: ui-component
+  api_client: false
+  language: JavaScript
+  description: A React component that uses a high-res source image to produce a zoom
+    window on mouse hover. Used on CarMax vehicle detail pages.
+  version: 1.3.0
+  published: '2019-09-05'
+  note: >-
+    First-party (published from the CarMax GitHub org) but it is not an API SDK — it wraps
+    no CarMax endpoint. Last release 2019-09-05, and the source repository's last push was
+    2023-04-17, so the package has been unreleased for six years.
+- name: Convergence
+  registry: nuget
+  url: https://www.nuget.org/packages/Convergence
+  repository: https://github.com/CarMax/Convergence
+  official: true
+  kind: server-library
+  api_client: false
+  language: C#
+  description: Run Node from ASP.NET MVC — the .NET half of CarMax's Convergence
+    .NET/Node interop library.
+  version: 1.0.0
+  published: '2017-11-02'
+  note: First-party (authors field reads "CarMax", project URL is the CarMax GitHub repo).
+    Not an API SDK. Single 1.0.0 release, 2,248 total downloads, unreleased since 2017.
+- name: Convergence.React
+  registry: nuget
+  url: https://www.nuget.org/packages/Convergence.React
+  repository: https://github.com/CarMax/Convergence
+  official: true
+  kind: server-library
+  api_client: false
+  language: C#
+  description: Render universal React components from ASP.NET MVC.
+  version: 1.0.0
+  published: '2017-11-02'
+  note: First-party, same repo and same 2017 release date. Not an API SDK.
+- name: '@striderlabs/mcp-carmax'
+  registry: npm
+  url: https://www.npmjs.com/package/@striderlabs/mcp-carmax
+  repository: null
+  official: false
+  kind: mcp-server
+  api_client: false
+  language: TypeScript
+  description: Third-party MCP server that automates carmax.com flows (search inventory,
+    vehicle details, schedule test drive, instant offer) with Playwright driving a
+    Browserbase browser session.
+  version: 1.0.1
+  published: '2026-06-18'
+  note: >-
+    NOT a CarMax package. Published by Strider Labs (hello@striderlabs.ai,
+    https://striderlabs.ai); it scrapes the CarMax website through a headless browser
+    rather than calling any CarMax API, and requires the consumer's own Browserbase CDP
+    URL. Recorded here so the catalog does not later mistake it for a first-party SDK.
+registries_checked:
+- registry: npm
+  query: carmax
+  result: two matches, both recorded above
+- registry: PyPI
+  query: carmax
+  result: no first-party package
+- registry: RubyGems
+  query: carmax
+  result: no first-party package
+- registry: crates.io
+  query: carmax
+  result: no first-party package
+- registry: NuGet
+  query: carmax
+  result: two first-party packages (Convergence, Convergence.React), both recorded above
+- registry: Maven Central
+  query: carmax
+  result: numFound 0
+- registry: Packagist
+  query: carmax
+  result: 8 fuzzy matches, none CarMax
+- registry: pkg.go.dev
+  query: github.com/carmax
+  result: proxy.golang.org 404 — no Go module namespace
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

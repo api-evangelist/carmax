@@ -1,0 +1,176 @@
+generated: '2026-09-05'
+method: probed
+source: live HTTPS probes of every host in apis.yml (2026-09-05), plus a Wayback-archived
+  copy of the one document CarMax actually serves
+provider: CarMax
+providerId: carmax
+note: >-
+  Every carmax.com host sits behind an Akamai bot-manager policy that answers 403
+  "Access Denied" to any non-browser client, including robots.txt and the homepage,
+  so a live status code from those hosts says nothing about whether a document exists.
+  CarMax DOES publish /.well-known/security.txt: the Internet Archive holds a real
+  RFC 9116 document captured 2026-02-03 (archived status 200), saved verbatim here as
+  carmax-security.txt. The media./investors. hosts run on the Q4 Inc investor-relations
+  platform, which answers 200 with the body "Invalid key" for EVERY /.well-known/* path
+  — a catch-all soft-200, not a document, and recorded as a miss.
+hosts:
+- host: www.carmax.com
+  note: Akamai bot-manager 403 on every path for non-browser clients (robots.txt and /
+    included); statuses below are our crawler being refused, not absence.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    file: carmax-security.txt
+    archived_status: 200
+    archived_url: https://web.archive.org/web/20260203040122id_/https://www.carmax.com/.well-known/security.txt
+    document: true
+    note: Real RFC 9116 file. Contact mailto:responsible_disclosure@carmax.com. The
+      Expires field reads 2024-12-31T05:00:00.000Z — the document is past its own
+      expiry and CarMax has not refreshed it.
+  - path: /.well-known/openid-configuration
+    status: 403
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    document: false
+  - path: /.well-known/api-catalog
+    status: 403
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 403
+    document: false
+  - path: /.well-known/agent.json
+    status: 403
+    document: false
+- host: carmax.com
+  note: Same Akamai policy as www.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 403
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    document: false
+  - path: /.well-known/api-catalog
+    status: 403
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    document: false
+- host: careers.carmax.com
+  note: Phenom-hosted careers site; reachable, answers honest 404s.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: media.carmax.com
+  note: Q4 Inc IR platform. Returns 200 with the body "Invalid key" for every
+    /.well-known/* path — a catch-all soft-200, counted as a miss.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/agent-card.json
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/agent.json
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+- host: investors.carmax.com
+  note: Same Q4 Inc platform and same "Invalid key" soft-200 catch-all as media.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/agent-card.json
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+  - path: /.well-known/agent.json
+    status: 200
+    document: false
+    note: soft-200 catch-all, body is "Invalid key"
+- host: ai.carmax.com
+  note: >-
+    An Azure App Service ("istaihubwebsite") fronted by Microsoft Entra ID. Every path,
+    including /mcp and /sse, 302s into login.microsoftonline.com and renders a
+    "Sign in to your account" page, so all 200s here are the SSO shell. A POST of
+    tools/list to /mcp returned 401 with an empty body. This is an internal CarMax AI
+    hub, not a public agent surface — recorded, not credited.
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    document: false
+    note: Entra ID sign-in shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    document: false
+    note: Entra ID sign-in shell, not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    document: false
+    note: Entra ID sign-in shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    note: Entra ID sign-in shell, not a document
+- host: jobs.carmax.com
+  note: Akamai 403 on every path; last Wayback capture is 2019 and careers.carmax.com
+    is the current careers host.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 403
+    document: false
+  - path: /.well-known/agent.json
+    status: 403
+    document: false
+agent_card:
+  found: false
+  note: Probed /.well-known/agent-card.json and /.well-known/agent.json on all seven
+    hosts. No host returned a JSON object with AgentCard shape. Nothing written to a2a/.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

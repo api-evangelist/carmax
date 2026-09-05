@@ -4,37 +4,34 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CarMax
 providerId: carmax
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-05'
+generated: '2026-09-05'
+method: searched
+source: web search + site probes for CarMax API rate-limit documentation (2026-09-05)
+reconciled: true
 tags:
   - Automotive
   - Used Cars
   - Vehicle Inventory
   - Rate Limiting
-description: CarMax does not publish public rate limits for its APIs. Internal-traffic limits are not
-  publicly documented; partner-traffic limits are set in syndication agreements.
-notes: No public rate-limit documentation exists. Treat as partner-contract-defined.
+limit_count: 0
+limits: []
+headers: []
+description: >-
+  CarMax documents no rate limits. There is no public API, no developer documentation and
+  therefore no published quota, window, burst allowance, response header (X-RateLimit-*,
+  RateLimit-*, Retry-After) or exhaustion status code. Partner syndication traffic is
+  governed by bilateral agreements that are not published.
+notes: >-
+  Rewritten 2026-09-05. The previous version was written by the 2026-05-04 bulk sweep with
+  method "generated" and asserted a "Per-partner contract limit", a 429 throttle code and
+  three policies (partner scoping, exponential backoff, inventory freshness) that CarMax
+  has never published. Those were derived from nothing and have been removed. limit_count
+  is now 0, which is the honest measurement.
 sources:
-  - https://www.carmax.com/
-responseCodes:
-  throttled: 429
-limits:
-  - name: Per-partner contract limit
-    scope: partner
-    metric: varies
-    limit: see partnership agreement
-policies:
-  - name: Partner scoping
-    description: Rate caps are scoped to partner credentials and configured during syndication onboarding.
-  - name: Backoff strategy
-    description: Implement exponential backoff with jitter on 429 responses; coordinate sustained traffic
-      with the CarMax engineering contact.
-  - name: Inventory freshness
-    description: Vehicle Inventory data is updated frequently; align polling cadence with CarMax-recommended
-      intervals to avoid unnecessary load.
+  - url: https://www.carmax.com/
+    status: 403
+    note: no developer documentation exists to carry rate limits
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
