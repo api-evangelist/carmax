@@ -47,6 +47,18 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/carmax.png
 tags:
   - Auto Financing
   - Auto Retail
+  - Appraisal
+  - Automotive
+  - Omnichannel
+  - Retail
+  - Server-Driven UI
+  - Used Cars
+  - Vehicle Inventory
+  - VIN Lookup
+  - Fortune 500
+tags_raw:
+  - Auto Financing
+  - Auto Retail
   - Appraisals
   - Automotive
   - Omnichannel
