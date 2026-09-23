@@ -1,7 +1,9 @@
 ---
 title: CarMax Launches AI-Powered Used Vehicle Shopping App
 url: https://www.linkedin.com/posts/autofinancenews_carmaxlauncheschatgpt-apptoenable-nationwide-activity-7435824109525204993-An4v
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CarMax" press release artificial intelligence'
 position: 4
 source: serpapi-google

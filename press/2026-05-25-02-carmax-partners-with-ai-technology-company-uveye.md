@@ -1,7 +1,9 @@
 ---
 title: CarMax Partners with AI Technology Company UVeye ...
 url: https://media.carmax.com/press-releases/news-release/2023/CarMax-Partners-with-AI-Technology-Company-UVeye-on-Vehicle-Assessment-Technology-for-Wholesale-Vehicles/default.aspx
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CarMax" press release artificial intelligence'
 position: 2
 source: serpapi-google

@@ -1,7 +1,9 @@
 ---
 title: CarMax Partners with UVeye to Automate Inspections at ...
 url: https://uveye.com/carmax-partners-with-uveye/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CarMax" press release artificial intelligence'
 position: 5
 source: serpapi-google
