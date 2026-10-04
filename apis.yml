@@ -132,6 +132,7 @@ apis:
       - Price and market analytics
       - Third-party automotive marketplaces (via syndication agreements)
   - aid: carmax:vehicle-search-sdui-api
+    x-published: false
     name: CarMax Vehicle Search Server-Driven UI API
     description: >-
       The CarMax Vehicle Search Server-Driven UI API controls the
