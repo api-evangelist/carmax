@@ -193,6 +193,12 @@ apis:
       - Compare CarMax inventory without leaving ChatGPT
       - Get a sell-your-car valuation conversationally
 common:
+  - type: Plans
+    url: plans/carmax-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/carmax-rate-limits.yml
+  - type: FinOps
+    url: finops/carmax-finops.yml
   - type: DomainSecurity
     url: security/carmax-domain-security.yml
   - type: VulnerabilityDisclosure
