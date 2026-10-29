@@ -1,4 +1,4 @@
-# CarMax (carmax)
+# CarMax
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,104 +66,115 @@
 
 CarMax (NYSE: KMX) is the largest retailer of used cars in the United States, operating an omnichannel business that spans brick-and-mortar stores, carmax.com online purchasing, home delivery, financing, appraisals, and trade-ins. CarMax does not publish a public developer portal, but its engineering organization operates an extensive internal API program built around distinct API roles (Data Access Layer, Business Logic Layer, Server-Driven UI, Backend for Frontend). Public-facing APIs documented by the CarMax Engineering Blog include a Store Locations API and a Vehicle Inventory API, and CarMax has publicly discussed a Server-Driven UI API that controls vehicle search filters across web and mobile. Partner and syndication integrations are handled case by case rather than through a self-service portal.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/carmax/refs/heads/main/apis.yml)
+**Areas:** Auto Financing · Auto Retail · Appraisal · Automotive · Omnichannel · Retail · Server-Driven UI · Used Cars · Vehicle Inventory · VIN Lookup · Fortune 500
 
-## Scope
+## CarMax on APIs.io
 
-- **Type:** Index
-- **x-type:** company
-- **Position:** Consumer
-- **Access:** Partner
+Everything profiled for CarMax is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/carmax/](https://apis.io/providers/carmax/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Auto Financing
-- Auto Retail
-- Appraisals
-- Automotive
-- Omnichannel
-- Retail
-- Server-Driven UI
-- Used Cars
-- Vehicle Inventory
-- VIN Lookup
+- [CarMax Store Locations API](https://apis.io/apis/carmax/store-locations-api/) — The CarMax Store Locations API, discussed publicly on the CarMax Engineering Blog, exposes details about all CarMax store locations including addresses,…
+- [CarMax Vehicle Inventory API](https://apis.io/apis/carmax/vehicle-inventory-api/) — The CarMax Vehicle Inventory API exposes details about all used vehicles currently in CarMax's nationwide inventory, including year/make/model, trim,…
+- [CarMax Vehicle Search Server-Driven UI API](https://apis.io/apis/carmax/vehicle-search-sdui-api/) — The CarMax Vehicle Search Server-Driven UI API controls the search filters and list layouts presented across carmax.com and CarMax's mobile apps. It was…
+- [CarMax in ChatGPT](https://apis.io/apis/carmax/chatgpt-app/) — On 2026-02-27 CarMax became the first U.S. auto retailer with an app in the OpenAI ChatGPT App Store, putting its nationwide inventory of more than 45,000…
 
-## Overview
+### Published properties
 
-CarMax pioneered the no-haggle used-car retail model and has since built a tightly integrated digital and physical experience. On the technology side, the CarMax Engineering Blog openly discusses how the company runs dozens of product teams and an API Guild to keep their API ecosystem consistent, scalable, and transparent. The team organizes APIs by role: Data Access Layer APIs that wrap data sources, Business Logic Layer APIs that compose those, Server-Driven UI APIs that drive web and mobile experiences, and Backend For Frontend APIs that shape payloads per channel. Two APIs are named publicly on the blog - a Store Locations API and a Vehicle Inventory API - and CarMax also describes a Server-Driven UI API that governs the carmax.com vehicle search filters.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### CarMax Store Locations API
-The CarMax Store Locations API, discussed publicly on the CarMax Engineering Blog, exposes details about all CarMax store locations including addresses, hours, services offered, and geographic metadata. It is consumed primarily by carmax.com, the CarMax mobile app, and CarMax's digital marketing and SEO systems. The API is not offered as a self-service product to third parties.
+Model Context Protocol servers that expose the API to agents.
 
-**Human URL:** [https://www.carmax.com/stores](https://www.carmax.com/stores)
+- [CarMax in ChatGPT](https://apis.io/servers/carmax/carmax-in-chatgpt/)
 
-#### Features
-- Address, hours, and services per store
-- Geographic metadata for mapping
-- Used as a source of truth across CarMax channels
+#### Security (2)
 
-#### Use Cases
-- Store locator on carmax.com and mobile
-- SEO and local-landing-page generation
-- Internal operations dashboards
+Authentication, trust centre, and vulnerability disclosure.
 
-### CarMax Vehicle Inventory API
-The CarMax Vehicle Inventory API exposes details about all used vehicles currently in CarMax's nationwide inventory, including year/make/model, trim, mileage, price, exterior and interior attributes, photos, and stock number. The API powers carmax.com's search experience and the Vehicle Detail Page. It is consumed internally and surfaced to customers through CarMax's own products rather than opened as a public partner feed.
+- [Carmax Domain Security](https://apis.io/security/carmax/carmax-domain-security/)
+- [Carmax Vulnerability Disclosure](https://apis.io/security/carmax/carmax-vulnerability-disclosure/)
 
-**Human URL:** [https://www.carmax.com/cars](https://www.carmax.com/cars)
+#### Plans and pricing (1)
 
-#### Features
-- Nationwide used-vehicle inventory
-- Year/make/model/trim, mileage, price, stock number
-- Exterior, interior, and photo metadata
-- Powers carmax.com search and VDP
+Published plans, tiers and prices.
 
-#### Use Cases
-- Online vehicle search and listing pages
-- Home delivery and store-transfer eligibility
-- Price and market analytics
-- Third-party automotive marketplaces (via syndication agreements)
+- [Carmax Plans Pricing](https://apis.io/plans/carmax/carmax-plans-pricing/)
 
-### CarMax Vehicle Search Server-Driven UI API
-The CarMax Vehicle Search Server-Driven UI API controls the search filters and list layouts presented across carmax.com and CarMax's mobile apps. It was rewritten approximately three years prior to March 2026 and is an example of a Server-Driven UI pattern where the back end determines which filters and controls render on the client. It is an internal API, not published for external developers.
+#### Rate limits (1)
 
-**Human URL:** [https://www.carmax.com/cars](https://www.carmax.com/cars)
+Published request limits.
 
-#### Features
-- Server-Driven UI filter and layout payloads
-- Consistent web and mobile experience
-- Back-end controlled A/B testing and rollout
+- [Carmax Rate Limits](https://apis.io/rate-limits/carmax/carmax-rate-limits/)
 
-#### Use Cases
-- Unified search UX across channels
-- Rapid filter experimentation
-- Per-market and per-user personalization
+#### FinOps (1)
 
-## Common Properties
+What the API costs to run, by operation.
+
+- [Carmax Finops](https://apis.io/finops/carmax/carmax-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.carmax.com/)
-- [Stores](https://www.carmax.com/stores)
-- [Cars](https://www.carmax.com/cars)
-- [Finance](https://www.carmax.com/finance)
-- [Sell Your Car](https://www.carmax.com/sell-my-car)
-- [Engineering Blog](https://medium.com/carmax-engineering-blog)
-- [Careers](https://jobs.carmax.com/)
-- [Investor Relations](https://investors.carmax.com/)
-- [Customer Service](https://www.carmax.com/customer-service)
-- [Terms of Service](https://www.carmax.com/terms)
-- [Privacy Policy](https://www.carmax.com/privacy)
-- [LinkedIn](https://www.linkedin.com/company/carmax)
-- [X](https://x.com/CarMax)
-- [Facebook](https://www.facebook.com/CarMax)
+- [Support](https://www.carmax.com/help-center)
+- [Blog](https://medium.com/feed/carmax-engineering-blog)
+- [Security](https://www.carmax.com/responsible-disclosure)
+- [Terms of service](https://www.carmax.com/terms)
+- [Privacy policy](https://www.carmax.com/privacy-policy)
+- [GitHub](https://github.com/CarMax)
 
-## Timestamps
+## API Evangelist rating
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-04-23
+**Kin Score 17.0** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 70.0 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 21.1 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 6.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/carmax/](https://apis.io/providers/carmax/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CarMax: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/carmax/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
